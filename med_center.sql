@@ -13,8 +13,7 @@ CREATE TABLE doctors (
 CREATE TABLE patients (
     id SERIAL PRIMARY KEY,
     first_name TEXT NOT NULL,
-    last_name TEXT NOT NULL,
-    check_in TIMESTAMP
+    last_name TEXT NOT NULL
 );
 
 CREATE TABLE diseases (
@@ -24,9 +23,10 @@ CREATE TABLE diseases (
     secondary_treatment TEXT
 );
 
-CREATE TABLE doctors_patients (
+CREATE TABLE visits (
     doc_id INTEGER REFERENCES doctors(id) ON DELETE CASCADE,
-    pat_id INTEGER REFERENCES patients(id) ON DELETE CASCADE
+    pat_id INTEGER REFERENCES patients(id) ON DELETE CASCADE,
+    visit_time DATETIME
 );
 
 CREATE TABLE patients_diseases (

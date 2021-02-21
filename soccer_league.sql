@@ -26,7 +26,7 @@ CREATE TABLE players (
     first_name TEXT,
     last_name TEXT NOT NULL,
     jersey_num INTEGER,
-    current_team REFERENCES teams(id) ON DELETE SET NULL,
+    current_team INTEGER REFERENCES teams(id) ON DELETE SET NULL
 );
 
 CREATE TABLE matches (
